@@ -1,33 +1,18 @@
 -- mydetect.lua
-local osname = nil
-
 local function detectOS()
-   if osname then
+   local osname = nil
+
+   if osname ~= nil then
       return osname
    end
 
-   -- Unixの判定
-   local unix = false
-   local uname = io.popen("uname"):read("*l")
-   if uname then
-      if uname == "Linux" then
-         osname = "Linux"
-         unix = true
-      elseif uname == "Darwin" then
-         osname = "macOS"
-         unix = true
-      elseif uname:match("^BSD") then
-         osname = "BSD"
-         unix = true
-      end
+   -- Linuxの判定
+   if package.config:sub(1, 1) == "/" then
+      osname = "Linux"
    end
-
    -- Windowsの判定
-   if not unix then
-      local win = os.getenv("windir")
-      if win then
-         osname = "Windows"
-      end
+   if os.getenv("windir") then
+      osname = "Windows"
    end
 
    return osname
@@ -44,8 +29,8 @@ end
 
 local function sleepTime(seconds)
    local currentOS = detectOS()
-   if currentOS == "Windows" then
-      executeCommand("ping 127.0.0.1 -n " .. tostring(seconds + 1) .. " > nul")
+   if currentOS == "Windows"  then
+      executeCommand("sleep -m " .. tostring(seconds))
    else
       executeCommand("sleep " .. tostring(seconds))
    end
