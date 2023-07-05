@@ -3,7 +3,7 @@ local sleepTime = mydetect.sleepTime
 local clearScreen = mydetect.clearScreen
 
 -- local a = io.stdin:read()
-local waitTime = 0.8
+local waitTime = 1
 local answer = ""
 local answerCount = 0
 local maxQuestions = 3
@@ -35,7 +35,7 @@ while true do
             maxQuestions = maxQuestions + 1
          else
             maxQuestions = 3
-            if waitTime > 0.2 then
+            if waitTime > 0 then
                waitTime = waitTime - 0.1
             end
          end
