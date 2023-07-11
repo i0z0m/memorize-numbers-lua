@@ -45,7 +45,7 @@ while true do
          answer = ""
       else
          print("You lost!")
-         print("Your numbers of currect answers was " .. tostring(winCount))
+         print("Your numbers of correct answers was " .. tostring(winCount))
          break
       end
    end
