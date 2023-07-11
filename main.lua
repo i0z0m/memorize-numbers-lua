@@ -6,11 +6,11 @@ local clearScreen = mydetect.clearScreen
 local waitTime = 1
 local answer = ""
 local answerCount = 0
-local maxQuestions = 3
+local answerCountMax = 3
 local winCount = 0
 
 while true do
-   if answerCount < maxQuestions then
+   if answerCount < answerCountMax then
       local rnd = math.random(0, 9)
 
       clearScreen()
@@ -31,10 +31,10 @@ while true do
          print("You win!")
          sleepTime(1)
 
-         if maxQuestions < 6 then
-            maxQuestions = maxQuestions + 1
+         if answerCountMax < 6 then
+            answerCountMax = answerCountMax + 1
          else
-            maxQuestions = 3
+            answerCountMax = 3
             if waitTime > 0 then
                waitTime = waitTime - 0.1
             end
