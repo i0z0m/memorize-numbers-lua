@@ -23,6 +23,7 @@ while true do
    else
       clearScreen()
 
+      print("Your current numbers of correct answers is " .. tostring(winCount))
       io.write("Enter your answer: ")
       io.flush()
       local val = io.read()
