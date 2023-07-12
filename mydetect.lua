@@ -46,7 +46,6 @@ local function clearScreen()
 end
 
 return {
-   detectOS = detectOS,
    sleepTime = sleepTime,
    clearScreen = clearScreen
 }
